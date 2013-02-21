@@ -29,19 +29,28 @@
             UITextView* textView = note.object;
             NSRange range = textView.selectedRange;
             if (!range.length)
+            {
+                [self dummify];
                 return;
+            }
+                
             
             self.attributedText = textView.attributedText;
             self.range = range;
             [self.tableView reloadData];
         }];
         
-        UITextView* dummyTextView = UITextView.new;
-        dummyTextView.attributedText = [NSAttributedString.alloc initWithString:@"Lorem Ipsum"];
-        dummyTextView.selectedRange = NSMakeRange(0, dummyTextView.attributedText.string.length);
-        [NSNotificationCenter.defaultCenter postNotificationName:@"CCTextViewSelectionChanged" object:dummyTextView];
+        [self dummify];
     }
     return self;
+}
+
+- (void)dummify
+{
+    UITextView* dummyTextView = UITextView.new;
+    dummyTextView.attributedText = [NSAttributedString.alloc initWithString:@"Lorem Ipsum"];
+    dummyTextView.selectedRange = NSMakeRange(0, dummyTextView.attributedText.string.length);
+    [NSNotificationCenter.defaultCenter postNotificationName:@"CCTextViewSelectionChanged" object:dummyTextView];
 }
 
 #pragma mark - UIFont

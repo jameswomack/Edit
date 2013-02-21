@@ -16,88 +16,65 @@
 
 @implementation CCViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//NSRange range = [self.textView selectedRange];
-    //- (void)setAttributes:(NSDictionary *)attributes range:(NSRange)aRange
-    /*
-     NSArray *familyNames = [UIFont familyNames];
-     
-     for( NSString *familyName in familyNames ){
-     printf( "Family: %s \n", [familyName UTF8String] );
-     
-     NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
-     for( NSString *fontName in fontNames ){
-     printf( "\tFont: %s \n", [fontName UTF8String] );
-     
-     }
-     }          
-     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-     paragraphStyle.alignment = NSTextAlignmentLeft;
-     NSAttributedString *string
-     = [[NSAttributedString alloc] initWithString:text
-     attributes:[NSDictionary
-     dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:11],
-     NSFontAttributeName,
-     paragraphStyle, NSParagraphStyleAttributeName,nil]];
-     [paragraphStyle release];
-     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(42.0f, 10.0f, 275.0f, 50.0f)];
-     label.attributedText = string;
-     [string relase];
-     */
     
     [NSNotificationCenter.defaultCenter postNotificationName:@"CCTableViewReady" object:self.tableView];
     
-    [NSNotificationCenter.defaultCenter addObserverForName:@"CCFontSelected" object:nil queue:NULL usingBlock:^(NSNotification *note) {
-        NSRange rangePrior = self.textView.selectedRange;
-        NSRange range = rangePrior;
-        
-        if (range.location == NSNotFound) //NSNotFound == 2147483647, the 8th Mersenne prime
-            range = NSMakeRange(0, self.textView.attributedText.string.length-1);
-        
-        NSMutableAttributedString* attributedText = self.textView.attributedText.mutableCopy;
-        
-        NSRange rangeToPointTo = NSMakeRange(0, 1);
-        
-        CGFloat pointSize = [[self.textView.attributedText attribute:NSFontAttributeName atIndex:range.location effectiveRange:&rangeToPointTo] pointSize];
-        
-        UIFont* font = [UIFont fontWithName:[note.object fontName] size:pointSize];
-        [attributedText setAttributes:@{ NSFontAttributeName : font } range:range];
-        
-        if (range.length == 0)
-        {
-            fontNew = font;
-        }
-        else
-        {
-            self.textView.attributedText = attributedText;
-            self.textView.selectedRange = rangePrior;
-        }
+    [NSNotificationCenter.defaultCenter addObserverForName:@"CCFontSelected" object:nil queue:NULL usingBlock:^(NSNotification *note) {        
+        [self changeFontForTextViewWithFont:note.object inPlaceEditing:(self.safeRange.length == 0)];
     }];
+}
+
+
+- (NSRange)safeRange
+{
+    NSRange range = self.textView.selectedRange;
+    
+    if (range.location == NSNotFound) //NSNotFound == 2147483647, the 8th Mersenne prime
+        range = NSMakeRange(0, self.textView.attributedText.string.length-1);
+    
+    return range;
+}
+
+
+- (void)changeFontForTextViewWithFont:(UIFont*)aFont inPlaceEditing:(BOOL)inPlaceEditing
+{
+    NSRange rangePrior = self.textView.selectedRange;
+    NSRange range = self.safeRange;
+    
+    NSRange rangeToPointTo = NSMakeRange(0, 1);
+    
+    CGFloat pointSize = [[self.textView.attributedText attribute:NSFontAttributeName atIndex:range.location effectiveRange:&rangeToPointTo] pointSize];
+    
+    UIFont* font = [UIFont fontWithName:aFont.fontName size:pointSize];
+    
+    NSMutableAttributedString* attributedText = self.textView.attributedText.mutableCopy;
+    
+    if (fontNew)
+        [attributedText setAttributes:@{ NSFontAttributeName : font } range:NSMakeRange(range.location-1, 1)];
+    else
+        [attributedText setAttributes:@{ NSFontAttributeName : font } range:range];
+    
+    if (inPlaceEditing)
+    {
+        fontNew = font.copy;
+    }
+    else
+    {
+        self.textView.attributedText = attributedText;
+        self.textView.selectedRange = rangePrior;
+        fontNew = nil;
+    }
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
     if (fontNew)
     {
-        NSRange rangePrior = self.textView.selectedRange;
-        NSRange range = rangePrior;
-        
-        NSMutableAttributedString* attributedText = self.textView.attributedText.mutableCopy;
-        
-        NSRange rangeToPointTo = NSMakeRange(0, 1);
-        
-        CGFloat pointSize = [[self.textView.attributedText attribute:NSFontAttributeName atIndex:range.location effectiveRange:&rangeToPointTo] pointSize];
-        
-        UIFont* font = [UIFont fontWithName:[fontNew fontName] size:pointSize];
-        [attributedText setAttributes:@{ NSFontAttributeName : font } range:NSMakeRange(range.location-1, 1)];
-        
-        self.textView.attributedText = attributedText;
-        self.textView.selectedRange = rangePrior;
-        
-        fontNew = nil;
+        [self changeFontForTextViewWithFont:fontNew inPlaceEditing:NO];
     }
 }
 
@@ -122,6 +99,7 @@
     }
 }
 
+
 - (IBAction)tap:(UITapGestureRecognizer *)sender
 {
     [UIView animateWithDuration:0.5f animations:^{
@@ -137,5 +115,7 @@
         }
     }];
 }
+
+
 
 @end
