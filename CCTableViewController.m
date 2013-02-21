@@ -16,19 +16,39 @@
 
 #pragma mark - UIFont
 
+- (NSString*)fontFamilyForSectionIndex:(NSUInteger)section
+{
+    if (section)
+    {
+        NSArray* familyNames = UIFont.familyNames;
+        
+        NSString* family = familyNames[section];
+        
+        return family;
+    }
+    else
+    {
+        return self.currentFont.familyName;
+    }
+}
+
 - (NSArray*)fontNamesForSectionIndex:(NSUInteger)section
 {
-    NSArray* familyNames = UIFont.familyNames;
-    NSString* family = familyNames[section];
+    NSString* family = [self fontFamilyForSectionIndex:section];
     NSArray* fontNamesForSectionIndex = [UIFont fontNamesForFamilyName:family];
     return fontNamesForSectionIndex;
 }
 
-- (NSString*)currentFontName
+- (UIFont*)currentFont
 {
     NSRange range = self.range;
     UIFont* currentFont = [self.attributedText attribute:NSFontAttributeName atIndex:self.index effectiveRange:&range];
-    return currentFont.fontName;
+    return currentFont;
+}
+
+- (NSString*)currentFontName
+{
+    return self.currentFont.fontName;
 }
 
 - (NSString*)fontNameForIndexPath:(NSIndexPath *)indexPath
@@ -73,19 +93,20 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+
+    NSAttributedString* attributedTextSubstring = [self.attributedText attributedSubstringFromRange:self.range];
+    cell.textLabel.text = attributedTextSubstring.string;
     
-    NSLog(@"%@ %@",self.attributedText,self.attributedText.class);
-    assert(self.attributedText);
-    NSAttributedString* aString = [self.attributedText attributedSubstringFromRange:self.range];
-    assert(aString);
-    NSString* string = aString.string;
-    assert(string);
-    cell.textLabel.text = string;
     NSRange range = self.range;
     UIFont* font = [self.attributedText attribute:NSFontAttributeName atIndex:self.index effectiveRange:&range];
     cell.textLabel.font = [UIFont fontWithName:[self fontNameForIndexPath:indexPath] size:font.pointSize];
     
     return cell;
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self fontFamilyForSectionIndex:section];
 }
 
 

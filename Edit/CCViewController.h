@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) IBOutlet CCTableViewController *tableDelegate;
+- (IBAction)tap:(UITapGestureRecognizer *)sender;
 
 @end

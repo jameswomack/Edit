@@ -94,4 +94,20 @@
     }
 }
 
+- (IBAction)tap:(UITapGestureRecognizer *)sender
+{
+    [UIView animateWithDuration:0.5f animations:^{
+        if (self.tableView.alpha)
+        {
+            self.tableView.alpha = 0.f;
+            self.tableView.frame = CGRectMake(self.view.frame.size.width, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
+        }
+        else
+        {
+            self.tableView.alpha = 0.8f;
+            self.tableView.frame = CGRectMake(self.view.frame.size.width/2, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
+        }
+    }];
+}
+
 @end
