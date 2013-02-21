@@ -10,7 +10,7 @@
 #import "CCTableViewController.h"
 @interface CCViewController ()
 {
-    BOOL fontNew;
+    UIFont* fontNew;
 }
 @end
 
@@ -56,12 +56,6 @@
         
         if (range.location == NSNotFound) //NSNotFound == 2147483647, the 8th Mersenne prime
             range = NSMakeRange(0, self.textView.attributedText.string.length-1);
-        else if (range.length == 0)
-        {
-            range.location = (range.location-1)?range.location-1:0;
-            range.length = 1;
-        }
-            
         
         NSMutableAttributedString* attributedText = self.textView.attributedText.mutableCopy;
         
@@ -72,12 +66,40 @@
         UIFont* font = [UIFont fontWithName:[note.object fontName] size:pointSize];
         [attributedText setAttributes:@{ NSFontAttributeName : font } range:range];
         
-        self.textView.attributedText = attributedText;
-        self.textView.selectedRange = rangePrior;
-        
+        if (range.length == 0)
+        {
+            fontNew = font;
+        }
+        else
+        {
+            self.textView.attributedText = attributedText;
+            self.textView.selectedRange = rangePrior;
+        }
     }];
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if (fontNew)
+    {
+        NSRange rangePrior = self.textView.selectedRange;
+        NSRange range = rangePrior;
+        
+        NSMutableAttributedString* attributedText = self.textView.attributedText.mutableCopy;
+        
+        NSRange rangeToPointTo = NSMakeRange(0, 1);
+        
+        CGFloat pointSize = [[self.textView.attributedText attribute:NSFontAttributeName atIndex:range.location effectiveRange:&rangeToPointTo] pointSize];
+        
+        UIFont* font = [UIFont fontWithName:[fontNew fontName] size:pointSize];
+        [attributedText setAttributes:@{ NSFontAttributeName : font } range:NSMakeRange(range.location-1, 1)];
+        
+        self.textView.attributedText = attributedText;
+        self.textView.selectedRange = rangePrior;
+        
+        fontNew = nil;
+    }
+}
 
 
 - (void)textViewDidChangeSelection:(UITextView *)textView
