@@ -19,6 +19,7 @@
 		BDAEDA3516D5C2D60093029A /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAEDA3416D5C2D60093029A /* CCViewController.m */; };
 		BDAEDA3816D5C2D60093029A /* CCViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */; };
 		BDAEDA3B16D5C2D60093029A /* CCViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */; };
+		BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		BDAEDA3416D5C2D60093029A /* CCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		BDAEDA3716D5C2D60093029A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CCViewController_iPhone.xib; sourceTree = "<group>"; };
 		BDAEDA3A16D5C2D60093029A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CCViewController_iPad.xib; sourceTree = "<group>"; };
+		BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTableViewController.h; path = ../CCTableViewController.h; sourceTree = "<group>"; };
+		BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCTableViewController.m; path = ../CCTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				BDAEDA2B16D5C2D60093029A /* CCAppDelegate.m */,
 				BDAEDA3316D5C2D60093029A /* CCViewController.h */,
 				BDAEDA3416D5C2D60093029A /* CCViewController.m */,
+				BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */,
+				BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */,
 				BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */,
 				BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */,
 				BDAEDA2216D5C2D60093029A /* Supporting Files */,
@@ -181,6 +186,7 @@
 				BDAEDA2816D5C2D60093029A /* main.m in Sources */,
 				BDAEDA2C16D5C2D60093029A /* CCAppDelegate.m in Sources */,
 				BDAEDA3516D5C2D60093029A /* CCViewController.m in Sources */,
+				BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +319,7 @@
 				BDAEDA4016D5C2D60093029A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CCViewController : UIViewController
+@class CCTableViewController;
+
+@interface CCViewController : UIViewController <UITextViewDelegate, UIGestureRecognizerDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) IBOutlet CCTableViewController *tableDelegate;
 
 @end
