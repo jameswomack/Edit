@@ -9,7 +9,9 @@
 #import "CCViewController.h"
 #import "CCTableViewController.h"
 @interface CCViewController ()
-
+{
+    BOOL fontNew;
+}
 @end
 
 @implementation CCViewController
@@ -46,37 +48,41 @@
      [string relase];
      */
     
-    //change to notification posting textView, use didChangeSelection
-    self.tableDelegate.attributedText = self.textView.attributedText;
-    self.tableDelegate.index = 0;
-    NSRange range = NSMakeRange(0, 1);
-    self.tableDelegate.range = range;
+    [NSNotificationCenter.defaultCenter postNotificationName:@"CCTableViewReady" object:self.tableView];
     
     [NSNotificationCenter.defaultCenter addObserverForName:@"CCFontSelected" object:nil queue:NULL usingBlock:^(NSNotification *note) {
+        NSRange rangePrior = self.textView.selectedRange;
+        NSRange range = rangePrior;
+        
+        if (range.location == NSNotFound) //NSNotFound == 2147483647, the 8th Mersenne prime
+            range = NSMakeRange(0, self.textView.attributedText.string.length-1);
+        else if (range.length == 0)
+        {
+            range.location = (range.location-1)?range.location-1:0;
+            range.length = 1;
+        }
+            
+        
         NSMutableAttributedString* attributedText = self.textView.attributedText.mutableCopy;
-        NSRange range = NSMakeRange(0, 1);
-        CGFloat pointSize = [[self.textView.attributedText attribute:NSFontAttributeName atIndex:self.textView.selectedRange.location effectiveRange:&range] pointSize];
+        
+        NSRange rangeToPointTo = NSMakeRange(0, 1);
+        
+        CGFloat pointSize = [[self.textView.attributedText attribute:NSFontAttributeName atIndex:range.location effectiveRange:&rangeToPointTo] pointSize];
+        
         UIFont* font = [UIFont fontWithName:[note.object fontName] size:pointSize];
-        [attributedText setAttributes:@{NSFontAttributeName : font}
-                        range:self.textView.selectedRange];
-        NSRange selectedRange = self.textView.selectedRange;
+        [attributedText setAttributes:@{ NSFontAttributeName : font } range:range];
+        
         self.textView.attributedText = attributedText;
-        self.textView.selectedRange = selectedRange;
+        self.textView.selectedRange = rangePrior;
+        
     }];
 }
 
+
+
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
-    NSRange range = self.textView.selectedRange;
-    if (range.length)
-    {
-        //change to notification posting textView
-        self.tableDelegate.attributedText = self.textView.attributedText;
-        self.tableDelegate.index = self.textView.selectedRange.location;
-        self.tableDelegate.range = range;
-        [self.tableView reloadData];
-    }
-    
+    [NSNotificationCenter.defaultCenter postNotificationName:@"CCTextViewSelectionChanged" object:self.textView];
 }
 
 

@@ -7,12 +7,42 @@
 //
 
 #import "CCTableViewController.h"
+#import "UITableViewCell+CCAttributedStringDescriptor.h"
 
-@interface CCTableViewController ()
+@interface CCTableViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (strong) UITableView* tableView;
+@property (strong) NSAttributedString* attributedText;
+@property NSRange range;
 @end
 
 @implementation CCTableViewController
 
+- (id)init
+{
+    if ((self = [super init]))
+    {        
+        [NSNotificationCenter.defaultCenter addObserverForName:@"CCTableViewReady" object:nil queue:NULL usingBlock:^(NSNotification *note) {
+            self.tableView = note.object;
+        }];
+        
+        [NSNotificationCenter.defaultCenter addObserverForName:@"CCTextViewSelectionChanged" object:nil queue:NULL usingBlock:^(NSNotification *note) {
+            UITextView* textView = note.object;
+            NSRange range = textView.selectedRange;
+            if (!range.length)
+                return;
+            
+            self.attributedText = textView.attributedText;
+            self.range = range;
+            [self.tableView reloadData];
+        }];
+        
+        UITextView* dummyTextView = UITextView.new;
+        dummyTextView.attributedText = [NSAttributedString.alloc initWithString:@"Lorem Ipsum"];
+        dummyTextView.selectedRange = NSMakeRange(0, dummyTextView.attributedText.string.length);
+        [NSNotificationCenter.defaultCenter postNotificationName:@"CCTextViewSelectionChanged" object:dummyTextView];
+    }
+    return self;
+}
 
 #pragma mark - UIFont
 
@@ -42,7 +72,7 @@
 - (UIFont*)currentFont
 {
     NSRange range = self.range;
-    UIFont* currentFont = [self.attributedText attribute:NSFontAttributeName atIndex:self.index effectiveRange:&range];
+    UIFont* currentFont = [self.attributedText attribute:NSFontAttributeName atIndex:self.range.location effectiveRange:&range];
     return currentFont;
 }
 
@@ -93,13 +123,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-
-    NSAttributedString* attributedTextSubstring = [self.attributedText attributedSubstringFromRange:self.range];
-    cell.textLabel.text = attributedTextSubstring.string;
     
-    NSRange range = self.range;
-    UIFont* font = [self.attributedText attribute:NSFontAttributeName atIndex:self.index effectiveRange:&range];
-    cell.textLabel.font = [UIFont fontWithName:[self fontNameForIndexPath:indexPath] size:font.pointSize];
+    [cell displayForAttributedString:self.attributedText withFontName:[self fontNameForIndexPath:indexPath] andRange:self.range andIndexPath:indexPath];
     
     return cell;
 }

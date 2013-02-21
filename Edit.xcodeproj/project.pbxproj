@@ -20,6 +20,7 @@
 		BDAEDA3816D5C2D60093029A /* CCViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */; };
 		BDAEDA3B16D5C2D60093029A /* CCViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */; };
 		BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */; };
+		BDDF8BCD16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +41,10 @@
 		BDAEDA3416D5C2D60093029A /* CCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		BDAEDA3716D5C2D60093029A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CCViewController_iPhone.xib; sourceTree = "<group>"; };
 		BDAEDA3A16D5C2D60093029A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CCViewController_iPad.xib; sourceTree = "<group>"; };
-		BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTableViewController.h; path = ../CCTableViewController.h; sourceTree = "<group>"; };
-		BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCTableViewController.m; path = ../CCTableViewController.m; sourceTree = "<group>"; };
+		BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewController.h; sourceTree = "<group>"; };
+		BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewController.m; sourceTree = "<group>"; };
+		BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CCAttributedStringDescriptor.h"; sourceTree = "<group>"; };
+		BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CCAttributedStringDescriptor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */,
 				BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */,
 				BDAEDA2216D5C2D60093029A /* Supporting Files */,
+				BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */,
+				BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				BDAEDA2C16D5C2D60093029A /* CCAppDelegate.m in Sources */,
 				BDAEDA3516D5C2D60093029A /* CCViewController.m in Sources */,
 				BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */,
+				BDDF8BCD16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
