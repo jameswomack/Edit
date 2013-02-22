@@ -21,11 +21,11 @@
 {
     if ((self = [super init]))
     {        
-        [NSNotificationCenter.defaultCenter addObserverForName:@"CCTableViewReady" object:nil queue:NULL usingBlock:^(NSNotification *note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:CCTableViewReady object:nil queue:NULL usingBlock:^(NSNotification *note) {
             self.tableView = note.object;
         }];
         
-        [NSNotificationCenter.defaultCenter addObserverForName:@"CCTextViewSelectionChanged" object:nil queue:NULL usingBlock:^(NSNotification *note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:CCTextViewSelectionChanged object:nil queue:NULL usingBlock:^(NSNotification *note) {
             UITextView* textView = note.object;
             NSRange range = textView.selectedRange;
             if (!range.length)
@@ -50,7 +50,7 @@
     UITextView* dummyTextView = UITextView.new;
     dummyTextView.attributedText = [NSAttributedString.alloc initWithString:@"Lorem Ipsum"];
     dummyTextView.selectedRange = NSMakeRange(0, dummyTextView.attributedText.string.length);
-    [NSNotificationCenter.defaultCenter postNotificationName:@"CCTextViewSelectionChanged" object:dummyTextView];
+    [NSNotificationCenter.defaultCenter postNotificationName:CCTextViewSelectionChanged object:dummyTextView];
 }
 
 #pragma mark - UIFont
@@ -150,7 +150,7 @@
 {
     NSString* fontName = [self fontNameForIndexPath:indexPath];
     UIFont* selectedFont = [UIFont fontWithName:fontName size:18.f];
-    [NSNotificationCenter.defaultCenter postNotificationName:@"CCFontSelected" object:selectedFont];
+    [NSNotificationCenter.defaultCenter postNotificationName:CCFontSelected object:selectedFont];
 }
 
 

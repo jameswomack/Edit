@@ -21,6 +21,9 @@
 		BDAEDA3B16D5C2D60093029A /* CCViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */; };
 		BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */; };
 		BDDF8BCD16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */; };
+		BDDF8BD016D74EE500520FB9 /* UITextView+CCTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDF8BCF16D74EE500520FB9 /* UITextView+CCTextInput.m */; };
+		BDDF8BD216D753F800520FB9 /* CCTextEditing.h in Resources */ = {isa = PBXBuildFile; fileRef = BDDF8BD116D753F800520FB9 /* CCTextEditing.h */; };
+		BDDF8BD416D7540E00520FB9 /* CCTextEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDF8BD316D7540D00520FB9 /* CCTextEditing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,10 @@
 		BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewController.m; sourceTree = "<group>"; };
 		BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CCAttributedStringDescriptor.h"; sourceTree = "<group>"; };
 		BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CCAttributedStringDescriptor.m"; sourceTree = "<group>"; };
+		BDDF8BCE16D74EE500520FB9 /* UITextView+CCTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+CCTextInput.h"; sourceTree = "<group>"; };
+		BDDF8BCF16D74EE500520FB9 /* UITextView+CCTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+CCTextInput.m"; sourceTree = "<group>"; };
+		BDDF8BD116D753F800520FB9 /* CCTextEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTextEditing.h; sourceTree = "<group>"; };
+		BDDF8BD316D7540D00520FB9 /* CCTextEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTextEditing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +106,11 @@
 				BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */,
 				BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */,
 				BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */,
-				BDAEDA2216D5C2D60093029A /* Supporting Files */,
+				BDDF8BCE16D74EE500520FB9 /* UITextView+CCTextInput.h */,
+				BDDF8BCF16D74EE500520FB9 /* UITextView+CCTextInput.m */,
 				BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */,
 				BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */,
+				BDAEDA2216D5C2D60093029A /* Supporting Files */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -112,6 +121,8 @@
 				BDAEDA2316D5C2D60093029A /* Edit-Info.plist */,
 				BDAEDA2416D5C2D60093029A /* InfoPlist.strings */,
 				BDAEDA2716D5C2D60093029A /* main.m */,
+				BDDF8BD116D753F800520FB9 /* CCTextEditing.h */,
+				BDDF8BD316D7540D00520FB9 /* CCTextEditing.m */,
 				BDAEDA2916D5C2D60093029A /* Edit-Prefix.pch */,
 				BDAEDA2D16D5C2D60093029A /* Default.png */,
 				BDAEDA2F16D5C2D60093029A /* Default@2x.png */,
@@ -178,6 +189,7 @@
 				BDAEDA3216D5C2D60093029A /* Default-568h@2x.png in Resources */,
 				BDAEDA3816D5C2D60093029A /* CCViewController_iPhone.xib in Resources */,
 				BDAEDA3B16D5C2D60093029A /* CCViewController_iPad.xib in Resources */,
+				BDDF8BD216D753F800520FB9 /* CCTextEditing.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +205,8 @@
 				BDAEDA3516D5C2D60093029A /* CCViewController.m in Sources */,
 				BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */,
 				BDDF8BCD16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m in Sources */,
+				BDDF8BD016D74EE500520FB9 /* UITextView+CCTextInput.m in Sources */,
+				BDDF8BD416D7540E00520FB9 /* CCTextEditing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
