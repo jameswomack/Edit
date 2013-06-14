@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 James Womack. All rights reserved.
 //
 
+
 #import "CCViewController.h"
 #import "CCTableViewController.h"
 #import "UITextView+CCTextInput.h"
@@ -34,6 +35,8 @@
         BOOL inPlaceEditing = (safeRangeLength == 0);
         [self changeFontForTextViewWithFont:note.object inPlaceEditing:inPlaceEditing];
     }];
+    
+    [THBinder binderFromObject:self.textView keyPath:@"isFirstResponder" toObject:self.textView keyPath:@"editable"];
 }
 
 
@@ -68,12 +71,14 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    fontNew?[self changeFontForTextViewWithFont:fontNew inPlaceEditing:NO]:0;
+    fontNew ? [self changeFontForTextViewWithFont:fontNew inPlaceEditing:NO] : 0;
 }
 
 
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
+    // TODO - Author method that uses runtime (so-called swizzling in particular)
+    // to post notifications when a certain method is called
     [NSNotificationCenter.defaultCenter postNotificationName:CCTextViewSelectionChanged object:self.textView];
 }
 
@@ -83,12 +88,12 @@
     if (self.textView.isFirstResponder)
     {
         [self.textView resignFirstResponder];
-        self.textView.editable = NO;
+        //self.textView.editable = NO;
     }
     else
     {
         [self.textView becomeFirstResponder];
-        self.textView.editable = YES;
+        //self.textView.editable = YES;
     }
 }
 

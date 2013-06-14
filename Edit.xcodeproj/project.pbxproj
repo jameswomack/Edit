@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15822A27872E4A93AE2723C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0B508BBAB64F209283D568 /* libPods.a */; };
 		BDAEDA1C16D5C2D60093029A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAEDA1B16D5C2D60093029A /* UIKit.framework */; };
 		BDAEDA1E16D5C2D60093029A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAEDA1D16D5C2D60093029A /* Foundation.framework */; };
 		BDAEDA2016D5C2D60093029A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAEDA1F16D5C2D60093029A /* CoreGraphics.framework */; };
@@ -19,6 +20,9 @@
 		BDAEDA3516D5C2D60093029A /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAEDA3416D5C2D60093029A /* CCViewController.m */; };
 		BDAEDA3816D5C2D60093029A /* CCViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */; };
 		BDAEDA3B16D5C2D60093029A /* CCViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */; };
+		BDC202A916DC4B9100E61903 /* CCSwizzlers.h in Resources */ = {isa = PBXBuildFile; fileRef = BDC202A816DC4B9100E61903 /* CCSwizzlers.h */; };
+		BDC202AB16DC4BB300E61903 /* CCSwizzlers.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC202AA16DC4BB300E61903 /* CCSwizzlers.m */; };
+		BDC202AE16DC4C5D00E61903 /* NSObject+CCSwizzlers.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC202AD16DC4C5D00E61903 /* NSObject+CCSwizzlers.m */; };
 		BDC98BA016D5F56B00A017E0 /* CCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */; };
 		BDDF8BCD16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */; };
 		BDDF8BD016D74EE500520FB9 /* UITextView+CCTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDF8BCF16D74EE500520FB9 /* UITextView+CCTextInput.m */; };
@@ -27,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E0B508BBAB64F209283D568 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F467FB593C948F6A5776A97 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		BDAEDA1816D5C2D60093029A /* Edit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAEDA1B16D5C2D60093029A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BDAEDA1D16D5C2D60093029A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -44,6 +50,10 @@
 		BDAEDA3416D5C2D60093029A /* CCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		BDAEDA3716D5C2D60093029A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CCViewController_iPhone.xib; sourceTree = "<group>"; };
 		BDAEDA3A16D5C2D60093029A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CCViewController_iPad.xib; sourceTree = "<group>"; };
+		BDC202A816DC4B9100E61903 /* CCSwizzlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSwizzlers.h; sourceTree = "<group>"; };
+		BDC202AA16DC4BB300E61903 /* CCSwizzlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSwizzlers.m; sourceTree = "<group>"; };
+		BDC202AC16DC4C5C00E61903 /* NSObject+CCSwizzlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CCSwizzlers.h"; sourceTree = "<group>"; };
+		BDC202AD16DC4C5D00E61903 /* NSObject+CCSwizzlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CCSwizzlers.m"; sourceTree = "<group>"; };
 		BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewController.h; sourceTree = "<group>"; };
 		BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewController.m; sourceTree = "<group>"; };
 		BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CCAttributedStringDescriptor.h"; sourceTree = "<group>"; };
@@ -62,6 +72,7 @@
 				BDAEDA1C16D5C2D60093029A /* UIKit.framework in Frameworks */,
 				BDAEDA1E16D5C2D60093029A /* Foundation.framework in Frameworks */,
 				BDAEDA2016D5C2D60093029A /* CoreGraphics.framework in Frameworks */,
+				15822A27872E4A93AE2723C9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +85,7 @@
 				BDAEDA2116D5C2D60093029A /* Edit */,
 				BDAEDA1A16D5C2D60093029A /* Frameworks */,
 				BDAEDA1916D5C2D60093029A /* Products */,
+				8F467FB593C948F6A5776A97 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +103,7 @@
 				BDAEDA1B16D5C2D60093029A /* UIKit.framework */,
 				BDAEDA1D16D5C2D60093029A /* Foundation.framework */,
 				BDAEDA1F16D5C2D60093029A /* CoreGraphics.framework */,
+				3E0B508BBAB64F209283D568 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -100,16 +113,10 @@
 			children = (
 				BDAEDA2A16D5C2D60093029A /* CCAppDelegate.h */,
 				BDAEDA2B16D5C2D60093029A /* CCAppDelegate.m */,
-				BDAEDA3316D5C2D60093029A /* CCViewController.h */,
-				BDAEDA3416D5C2D60093029A /* CCViewController.m */,
-				BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */,
-				BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */,
-				BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */,
-				BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */,
-				BDDF8BCE16D74EE500520FB9 /* UITextView+CCTextInput.h */,
-				BDDF8BCF16D74EE500520FB9 /* UITextView+CCTextInput.m */,
-				BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */,
-				BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */,
+				BDC202B016DC4DD600E61903 /* ViewControllers */,
+				BDC202B116DC4DF300E61903 /* Categories */,
+				BDC202B216DC4E0B00E61903 /* Helpers */,
+				BDC202AF16DC4D7E00E61903 /* Pixels */,
 				BDAEDA2216D5C2D60093029A /* Supporting Files */,
 			);
 			path = Edit;
@@ -121,14 +128,56 @@
 				BDAEDA2316D5C2D60093029A /* Edit-Info.plist */,
 				BDAEDA2416D5C2D60093029A /* InfoPlist.strings */,
 				BDAEDA2716D5C2D60093029A /* main.m */,
-				BDDF8BD116D753F800520FB9 /* CCTextEditing.h */,
-				BDDF8BD316D7540D00520FB9 /* CCTextEditing.m */,
 				BDAEDA2916D5C2D60093029A /* Edit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDC202AF16DC4D7E00E61903 /* Pixels */ = {
+			isa = PBXGroup;
+			children = (
 				BDAEDA2D16D5C2D60093029A /* Default.png */,
 				BDAEDA2F16D5C2D60093029A /* Default@2x.png */,
 				BDAEDA3116D5C2D60093029A /* Default-568h@2x.png */,
 			);
-			name = "Supporting Files";
+			name = Pixels;
+			sourceTree = "<group>";
+		};
+		BDC202B016DC4DD600E61903 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BDAEDA3316D5C2D60093029A /* CCViewController.h */,
+				BDAEDA3416D5C2D60093029A /* CCViewController.m */,
+				BDC98B9E16D5F56B00A017E0 /* CCTableViewController.h */,
+				BDC98B9F16D5F56B00A017E0 /* CCTableViewController.m */,
+				BDAEDA3616D5C2D60093029A /* CCViewController_iPhone.xib */,
+				BDAEDA3916D5C2D60093029A /* CCViewController_iPad.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BDC202B116DC4DF300E61903 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BDDF8BCE16D74EE500520FB9 /* UITextView+CCTextInput.h */,
+				BDDF8BCF16D74EE500520FB9 /* UITextView+CCTextInput.m */,
+				BDDF8BCB16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.h */,
+				BDDF8BCC16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m */,
+				BDC202AC16DC4C5C00E61903 /* NSObject+CCSwizzlers.h */,
+				BDC202AD16DC4C5D00E61903 /* NSObject+CCSwizzlers.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		BDC202B216DC4E0B00E61903 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BDDF8BD116D753F800520FB9 /* CCTextEditing.h */,
+				BDDF8BD316D7540D00520FB9 /* CCTextEditing.m */,
+				BDC202A816DC4B9100E61903 /* CCSwizzlers.h */,
+				BDC202AA16DC4BB300E61903 /* CCSwizzlers.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +190,7 @@
 				BDAEDA1416D5C2D60093029A /* Sources */,
 				BDAEDA1516D5C2D60093029A /* Frameworks */,
 				BDAEDA1616D5C2D60093029A /* Resources */,
+				3BF01813DF35464D958B0B05 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,10 +240,28 @@
 				BDAEDA3816D5C2D60093029A /* CCViewController_iPhone.xib in Resources */,
 				BDAEDA3B16D5C2D60093029A /* CCViewController_iPad.xib in Resources */,
 				BDDF8BD216D753F800520FB9 /* CCTextEditing.h in Resources */,
+				BDC202A916DC4B9100E61903 /* CCSwizzlers.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BF01813DF35464D958B0B05 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDAEDA1416D5C2D60093029A /* Sources */ = {
@@ -207,6 +275,8 @@
 				BDDF8BCD16D6ABEC00520FB9 /* UITableViewCell+CCAttributedStringDescriptor.m in Sources */,
 				BDDF8BD016D74EE500520FB9 /* UITextView+CCTextInput.m in Sources */,
 				BDDF8BD416D7540E00520FB9 /* CCTextEditing.m in Sources */,
+				BDC202AB16DC4BB300E61903 /* CCSwizzlers.m in Sources */,
+				BDC202AE16DC4C5D00E61903 /* NSObject+CCSwizzlers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +370,7 @@
 		};
 		BDAEDA3F16D5C2D60093029A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F467FB593C948F6A5776A97 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Edit/Edit-Prefix.pch";
@@ -311,6 +382,7 @@
 		};
 		BDAEDA4016D5C2D60093029A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F467FB593C948F6A5776A97 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Edit/Edit-Prefix.pch";

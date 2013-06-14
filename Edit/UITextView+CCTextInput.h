@@ -12,5 +12,7 @@
 
 - (NSRange)safeRange;
 - (void)setAttributedText:(NSAttributedString *)attributedText selectedRange:(NSRange)selectedRange;
+- (BOOL)swizzled_becomeFirstResponder;
+- (BOOL)swizzled_resignFirstResponder;
 
 @end

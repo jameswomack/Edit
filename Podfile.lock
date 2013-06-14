@@ -1,0 +1,14 @@
+
+PODS:
+- Kiwi (2.0.5)
+- THObserversAndBinders (1.0.0)
+
+DEPENDENCIES:
+- Kiwi
+- THObserversAndBinders (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  THObserversAndBinders: 5f0e709e8b704a8646ffdee9beb01a8aefc1dcb2
+  Kiwi: 89ade77eb49c889178cb2779e02514a7b9b9449e
+
+COCOAPODS: 0.16.2

@@ -11,12 +11,12 @@
 @class CCTableViewController;
 
 @interface CCViewController : UIViewController <UITextViewDelegate, UIGestureRecognizerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-- (IBAction)swipe:(UISwipeGestureRecognizer *)sender;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong, nonatomic) IBOutlet CCTableViewController *tableDelegate;
+
 - (IBAction)tap:(UITapGestureRecognizer *)sender;
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender;
 
 @end
